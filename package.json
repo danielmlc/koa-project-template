@@ -1,0 +1,38 @@
+{
+  "name": "koa-project-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpages-packer  --env development --config packer-config.js --watch true --include  server,loginPage,homePage",
+    "build": "webpages-packer  --env production --config packer-config.js --watch false ",
+    "start": "node dist/server/app.js"
+  },
+  "author": "danielmlc",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "crypto-js": "^4.1.1",
+    "dayjs": "^1.9.6",
+    "element-extension": "^2.2.2",
+    "element-mini-ui": "^1.2.3",
+    "koa": "^2.13.4",
+    "koa-bodyparser": "^4.3.0",
+    "koa-json": "^2.0.2",
+    "koa-logger": "^3.2.1",
+    "koa-onerror": "^4.1.0",
+    "koa-router": "^10.1.1",
+    "koa-static": "^5.0.0",
+    "orm-sequelize-utils": "^1.0.5",
+    "sequelize": "^6.12.0-beta.3",
+    "yaml": "^1.10.0"
+  },
+  "devDependencies": {
+    "vue": "^2.6.12",
+    "vue-router": "^3.4.5",
+    "vuex": "^3.5.1",
+    "webpages-packer": "^2.2.2",
+    "webpages-packer-browser-vue": "^1.1.2",
+    "webpages-packer-node": "^1.1.2"
+  }
+}

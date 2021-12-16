@@ -1,0 +1,8 @@
+datasource:
+  dialect: 'mysql'
+  host: '172.16.1.4'
+  port: 3307
+  database: 'weighing_images'
+  username: 'NnJ4gRu0ULBOLdPZMzqGvQ=='
+  password: 'ohW6UeGl9XOte3YG0Y7EBw=='
+  logging: false
