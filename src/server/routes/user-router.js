@@ -7,6 +7,12 @@ const userRouterRegist = function (router) {
   router.get('/user', async (ctx, next) => {
     userService.GetUser(ctx)
   })
+  router.post('/login', async (ctx, next) => {
+    userService.UserLogin(ctx)
+  })
+  router.get('/loginOut', async (ctx, next) => {
+    userService.UserLoginOut(ctx)
+  })
 }
 
 module.exports = {

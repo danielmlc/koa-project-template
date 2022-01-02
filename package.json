@@ -6,12 +6,13 @@
   "scripts": {
     "dev": "webpages-packer  --env development --config packer-config.js --watch true --include  server,loginPage,homePage",
     "build": "webpages-packer  --env production --config packer-config.js --watch false ",
-    "start": "node dist/server/app.js"
+    "start": "nodemon dist/server/app.js"
   },
   "author": "danielmlc",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.24.0",
+    "core-js": "^3.20.1",
     "crypto-js": "^4.1.1",
     "dayjs": "^1.9.6",
     "element-extension": "^2.2.2",
@@ -22,6 +23,7 @@
     "koa-logger": "^3.2.1",
     "koa-onerror": "^4.1.0",
     "koa-router": "^10.1.1",
+    "koa-session2": "^2.2.10",
     "koa-static": "^5.0.0",
     "orm-sequelize-utils": "^1.0.5",
     "sequelize": "^6.12.0-beta.3",

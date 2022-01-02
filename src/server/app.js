@@ -2,6 +2,7 @@ const Koa = require('koa')
 const path = require('path')
 const json = require('koa-json')
 const onerror = require('koa-onerror')
+const session = require('koa-session2')
 const bodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
 const koaStatic = require('koa-static')
@@ -19,6 +20,12 @@ const server = {
 // error handler
 onerror(app)
 
+app.use(session({
+  maxAge: 24 * 60 * 60000,
+  overwrite: true,
+  rolling: false
+}))
+
 // middlewares
 app.use(bodyparser({
   enableTypes: ['json', 'form', 'text']
@@ -29,13 +36,14 @@ app.use(logger())
 app.use(koaStatic(
   path.join(__dirname, '../contents/')
 ))
-// app.use(async (ctx, next) => {
-//   // const sequelize = initMySql(yamlConfig)
-//   // const models = await getModels(sequelize)
-//   // ctx.models = models
-//   //
-//   await next()
-// })
+app.use(async (ctx, next) => {
+  if (!ctx.cookies.get('koa:sess') && ctx.path !== '/login') {
+    // 拦截跳转
+    ctx.body = -400
+  } else {
+    await next()
+  }
+})
 
 // 注册路由
 const router = new Router()
